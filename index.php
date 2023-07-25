@@ -8,19 +8,11 @@ $json2 = json_decode($json2);
 
 $new = [];
 foreach ($json1 as $k => $v) {
-	$x = [
-		'id' => $v->id,
-		'timestamp' => $v->timestamp,
-		'nama' => $v->nama,
-		'nip' => $v->nip,
-		'satuan_kerja' => $v->satuan_kerja,
-		'posisi_yang_dipilih' => $v->posisi_yang_dipilih,
-		'bahasa_pemrograman_yang_dikuasai' => $v->bahasa_pemrograman_yang_dikuasai,
-		'framework_bahasa_pemrograman_yang_dikuasai' => $v->framework_bahasa_pemrograman_yang_dikuasai,
-		'database_yang_dikuasai' => $v->database_yang_dikuasai,
-		'tools_yang_dikuasai' => $v->tools_yang_dikuasai,
-		'pernah_membuat_mobile_apps' => $v->pernah_membuat_mobile_apps,
-	];
+	$x = [];
+
+	foreach($v as $xx => $yy) {
+		$x[$xx] = $yy;
+	}
 
 	foreach ($json2 as $k2 => $v2) {
 		if ($v2->id_pendaftar == $v->id) {
