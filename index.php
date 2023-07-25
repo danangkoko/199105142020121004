@@ -27,6 +27,7 @@ foreach ($json1 as $k => $v) {
 			$x[$v2->jenis_attr] = $v2->value;
 		}
 	}
+
 	$new[] = $x;
 }
 ?>
@@ -48,7 +49,6 @@ foreach ($json1 as $k => $v) {
 	<nav class="navbar navbar-dark bg-dark mb-3">
 		<a class="navbar-brand" href="#">Test Programmer - Danang Teguh Sri Hatmoko (199105142020121004)</a>
 	</nav>
-
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
@@ -73,9 +73,7 @@ foreach ($json1 as $k => $v) {
 						</tr>
 					</thead>
 					<tbody>
-						<?php
-							foreach ($new as $k):
-						?>
+						<?php foreach ($new as $k): ?>
 						<tr>
 							<td class="align-middle text-center"><?php echo $k['id']; ?></td>
 							<td class="align-middle"><?php echo $k['timestamp']; ?></td>
@@ -88,12 +86,12 @@ foreach ($json1 as $k => $v) {
 							<td class="align-middle"><?php echo $k['database_yang_dikuasai']; ?></td>
 							<td class="align-middle"><?php echo $k['tools_yang_dikuasai']; ?></td>
 							<td class="align-middle text-center"><?php echo $k['pernah_membuat_mobile_apps']; ?></td>
-							<td class="align-middle text-center"><?php echo isset($k['nilai_t1']) ? $k['nilai_t1'] : '-'; ?></td>
-							<td class="align-middle text-center"><?php echo isset($k['nilai_t2']) ? $k['nilai_t2'] : '-'; ?></td>
-							<td class="align-middle text-center"><?php echo isset($k['nilai_t3']) ? $k['nilai_t3'] : '-'; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t1']) && $k['nilai_t1'] != '' ? $k['nilai_t1'] : '-'; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t2']) && $k['nilai_t2'] != '' ? $k['nilai_t2'] : '-'; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t3']) && $k['nilai_t3'] != '' ? $k['nilai_t3'] : '-'; ?></td>
 							<td class="align-middle text-center">
 								<?php if(isset($k['url_file']) && $k['url_file'] != ''): ?>
-								<a class="font-weight-bold" href="<?php echo $k['url_file']; ?>">Download</a>
+								<a class="font-weight-bold" href="<?php echo $k['url_file']; ?>" target="_blank" download>Download</a>
 								<?php endif;?>
 							</td>
 						</tr>
@@ -106,7 +104,6 @@ foreach ($json1 as $k => $v) {
 	<footer class="bg-dark text-center py-3 mb-0">
 		<p class="text-light mb-0">&copy; Danang teguh Sri Hatmoko</p>
 	</footer>
-
 	<script src="plugins/jquery/jquery.min.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
