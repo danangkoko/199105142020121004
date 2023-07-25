@@ -1,0 +1,21 @@
+.modal-dialog {
+	height: 100vh !important;
+}
+
+.modal-content {
+	height: 100%
+}
+
+.modal-xl {
+	min-width: 100vw !important;
+	min-height: 100vh !important;
+	margin: auto;
+}
+
+.modal-header {
+	padding: .2rem 1rem;
+}
+
+.modal-footer {
+	padding: .5rem 1rem;
+}
