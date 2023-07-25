@@ -6,17 +6,29 @@ $json1 = $json1->{'Form Responses 1'};
 $json2 = file_get_contents("http://103.226.55.159/json/data_attribut.json");
 $json2 = json_decode($json2);
 
-
+$new = [];
 foreach ($json1 as $k => $v) {
-	// foreach ($json2 as $k2 => $v2) {
-	// 	if ($v2 == $v->id) {
-	// 		$json1[0][$v2] = $v2;
-	// 	}
-	// }
+	$x = [
+		'id' => $v->id,
+		'timestamp' => $v->timestamp,
+		'nama' => $v->nama,
+		'nip' => $v->nip,
+		'satuan_kerja' => $v->satuan_kerja,
+		'posisi_yang_dipilih' => $v->posisi_yang_dipilih,
+		'bahasa_pemrograman_yang_dikuasai' => $v->bahasa_pemrograman_yang_dikuasai,
+		'framework_bahasa_pemrograman_yang_dikuasai' => $v->framework_bahasa_pemrograman_yang_dikuasai,
+		'database_yang_dikuasai' => $v->database_yang_dikuasai,
+		'tools_yang_dikuasai' => $v->tools_yang_dikuasai,
+		'pernah_membuat_mobile_apps' => $v->pernah_membuat_mobile_apps,
+	];
+
+	foreach ($json2 as $k2 => $v2) {
+		if ($v2->id_pendaftar == $v->id) {
+			$x[$v2->jenis_attr] = $v2->value;
+		}
+	}
+	$new[] = $x;
 }
-// echo json_encode($json1[0]);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +40,13 @@ foreach ($json1 as $k => $v) {
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
-	<title>Test</title>
+	<title>Test Programmer</title>
 	<link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="plugins/style.css" rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark mb-3">
-		<a class="navbar-brand" href="#">Test</a>
+		<a class="navbar-brand" href="#">Test Programmer - Danang Teguh Sri Hatmoko (199105142020121004)</a>
 	</nav>
 
 	<div class="container-fluid">
@@ -54,24 +66,36 @@ foreach ($json1 as $k => $v) {
 							<th class="align-middle text-center">Database</th>
 							<th class="align-middle text-center">Tools</th>
 							<th class="align-middle text-center">Dev Mobile Apps</th>
+							<th class="align-middle text-center">Nilai T1</th>
+							<th class="align-middle text-center">Nilai T2</th>
+							<th class="align-middle text-center">Nilai T3</th>
+							<th class="align-middle text-center">File</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
-							foreach ($json1 as $k):
+							foreach ($new as $k):
 						?>
 						<tr>
-							<td><?php echo $k->id; ?></td>
-							<td><?php echo $k->timestamp; ?></td>
-							<td><?php echo $k->nama; ?></td>
-							<td><?php echo $k->nip; ?></td>
-							<td><?php echo $k->satuan_kerja; ?></td>
-							<td><?php echo $k->posisi_yang_dipilih; ?></td>
-							<td><?php echo $k->bahasa_pemrograman_yang_dikuasai; ?></td>
-							<td><?php echo $k->framework_bahasa_pemrograman_yang_dikuasai; ?></td>
-							<td><?php echo $k->database_yang_dikuasai; ?></td>
-							<td><?php echo $k->tools_yang_dikuasai; ?></td>
-							<td><?php echo $k->pernah_membuat_mobile_apps; ?></td>
+							<td class="align-middle text-center"><?php echo $k['id']; ?></td>
+							<td class="align-middle"><?php echo $k['timestamp']; ?></td>
+							<td class="align-middle"><?php echo $k['nama']; ?></td>
+							<td class="align-middle"><?php echo $k['nip']; ?></td>
+							<td class="align-middle"><?php echo $k['satuan_kerja']; ?></td>
+							<td class="align-middle"><?php echo $k['posisi_yang_dipilih']; ?></td>
+							<td class="align-middle"><?php echo $k['bahasa_pemrograman_yang_dikuasai']; ?></td>
+							<td class="align-middle"><?php echo $k['framework_bahasa_pemrograman_yang_dikuasai']; ?></td>
+							<td class="align-middle"><?php echo $k['database_yang_dikuasai']; ?></td>
+							<td class="align-middle"><?php echo $k['tools_yang_dikuasai']; ?></td>
+							<td class="align-middle text-center"><?php echo $k['pernah_membuat_mobile_apps']; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t1']) ? $k['nilai_t1'] : '-'; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t2']) ? $k['nilai_t2'] : '-'; ?></td>
+							<td class="align-middle text-center"><?php echo isset($k['nilai_t3']) ? $k['nilai_t3'] : '-'; ?></td>
+							<td class="align-middle text-center">
+								<?php if(isset($k['url_file']) && $k['url_file'] != ''): ?>
+								<a class="font-weight-bold" href="<?php echo $k['url_file']; ?>">Download</a>
+								<?php endif;?>
+							</td>
 						</tr>
 						<?php endforeach; ?>
 					</tbody>
@@ -80,7 +104,7 @@ foreach ($json1 as $k => $v) {
 		</div>
 	</div>
 	<footer class="bg-dark text-center py-3 mb-0">
-		<p class="text-light mb-0">Test</p>
+		<p class="text-light mb-0">&copy; Danang teguh Sri Hatmoko</p>
 	</footer>
 
 	<script src="plugins/jquery/jquery.min.js"></script>
