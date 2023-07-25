@@ -44,9 +44,9 @@ foreach ($json1 as $k => $v) {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
-				<table class="table table-sm table-bordered">
+				<table class="table table-sm table-bordered table-striped">
 					<thead>
-						<tr>
+						<tr class="table-success">
 							<th class="align-middle text-center">ID</th>
 							<th class="align-middle text-center">Timestamp</th>
 							<th class="align-middle text-center">Nama</th>
@@ -83,7 +83,9 @@ foreach ($json1 as $k => $v) {
 							<td class="align-middle text-center"><?php echo isset($k['nilai_t3']) && $k['nilai_t3'] != '' ? $k['nilai_t3'] : '-'; ?></td>
 							<td class="align-middle text-center">
 								<?php if(isset($k['url_file']) && $k['url_file'] != ''): ?>
-								<a class="font-weight-bold" href="<?php echo $k['url_file']; ?>" target="_blank" download>Download</a>
+								<a class="btn btn-primary btn-sm" href="<?php echo $k['url_file']; ?>" target="_blank" download>Download</a>
+								<?php else: ?>
+								<a class="btn btn-secondary btn-sm disabled" href="#" disabled>Download</a>
 								<?php endif;?>
 							</td>
 						</tr>
