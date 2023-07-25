@@ -33,13 +33,13 @@ foreach ($json1 as $k => $v) {
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
-	<title>Test Programmer</title>
+	<title>Test Programmer MA</title>
 	<link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="plugins/style.css" rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark mb-3">
-		<a class="navbar-brand" href="#">Test Programmer - Danang Teguh Sri Hatmoko (199105142020121004)</a>
+		<a class="navbar-brand" href="#">Test Programmer MA - Danang Teguh Sri Hatmoko (199105142020121004)</a>
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
@@ -94,7 +94,7 @@ foreach ($json1 as $k => $v) {
 		</div>
 	</div>
 	<footer class="bg-dark text-center py-3 mb-0">
-		<p class="text-light mb-0">&copy; Danang teguh Sri Hatmoko</p>
+		<p class="text-light mb-0">&copy; Danang Teguh Sri Hatmoko</p>
 	</footer>
 	<script src="plugins/jquery/jquery.min.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
